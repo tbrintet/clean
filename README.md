@@ -28,4 +28,4 @@ If you have any suggestions or improvements for this script, please feel free to
 
 ## License
 
-This project is licensed under the GPL v2 License. See the [LICENSE](LICENSE) file for details
+This project is licensed under the GPL v3 License. See the [LICENSE](LICENSE) file for details
