@@ -25,7 +25,7 @@ journalctl --vacuum-time=1s
 journalctl --verify
 
 # Clear login history by emptying the wtmp and btmp files
-rm -vf > /var/log/wtmp
+rm -vf /var/log/wtmp
 rm -vf /var/log/btmp
 
 # Remove gzipped log files in the /var/log directory
