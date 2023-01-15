@@ -31,5 +31,7 @@ rm -vf /var/log/btmp
 # Remove gzipped log files in the /var/log directory
 find /var/log -type f -name "*.gz" -delete -print
 
-# Remove bash history files in the /home directory
+# Remove various history files in the /home directory
 rm -vf /home/*/.bash_history
+rm -vf /home/*/.lesshst
+rm -vf /home/*/.python_history

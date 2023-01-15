@@ -5,9 +5,9 @@ This is a simple bash script that can be used to perform various cleaning tasks 
 1. Updates the system package list and upgrades all installed packages.
 2. Removes and purges any orphaned packages and cleans the package cache.
 3. Clears the system journal and rotates the logs.
-4. Clears the wtmp and btmp files, which store login and logout history.
+4. Removes the wtmp and btmp files, which store login and logout history.
 5. Removes all gzipped log files in the /var/log directory.
-6. Removes all bash history files in the /home directory.
+6. Removes various history files in the /home directory.
 
 The script must be run as root, and will prompt the user to run as root if not already running as root.
 
@@ -16,7 +16,6 @@ Please note that this script is intended for use on Debian-based systems and may
 ## Usage
 
 sudo bash clean.sh
-
 
 ## Warning
 
