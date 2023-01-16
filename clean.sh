@@ -7,18 +7,6 @@ if [ "$(id -u)" != "0" ]; then
    exit 1
 fi
 
-# Update package list and upgrade all installed packages
-apt update
-apt full-upgrade -y
-
-# Remove orphaned packages, clean package cache and remove old unused configuration files
-apt autoremove --purge -y
-apt clean
-apt purge ~c
-
-# Remove cache files
-rm -rvf /var/cache/*
-
 # Clear system journal logs
 journalctl --flush --rotate
 journalctl --vacuum-time=1s
@@ -35,3 +23,15 @@ find /var/log -type f -name "*.gz" -delete -print
 rm -vf /home/*/.bash_history
 rm -vf /home/*/.lesshst
 rm -vf /home/*/.python_history
+
+# Update package list and upgrade all installed packages
+apt update
+apt full-upgrade -y
+
+# Remove orphaned packages, clean package cache and remove old unused configuration files
+apt autoremove --purge -y
+apt clean
+apt purge ~c
+
+# Remove cache files
+rm -rvf /var/cache/*
