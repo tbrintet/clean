@@ -19,6 +19,10 @@ rm -vf /var/log/btmp
 # Remove gzipped log files in the /var/log directory
 find /var/log -type f -name "*.gz" -delete -print
 
+# Remove cache files in ~/.cache that have not been used in the past 60 days, for all users
+find /home/*/.cache/ -type f -atime +60 -delete -print
+find /root/.cache/ -type f -atime +60 -delete -print
+
 # Remove various history files in the /home directory
 rm -vf /home/*/.bash_history
 rm -vf /home/*/.lesshst
