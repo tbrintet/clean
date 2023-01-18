@@ -39,3 +39,4 @@ apt purge ~c
 
 # Remove cache files
 rm -rvf /var/cache/*
+rm -rvf /var/tmp/*
