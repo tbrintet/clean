@@ -3,8 +3,8 @@
 
 # Check if the script is being run as root
 if [ "$(id -u)" != "0" ]; then
-   echo "Run as root" 
-   exit 1
+	echo "Run as root"
+	exit 1
 fi
 
 # Clear system journal logs
@@ -35,7 +35,7 @@ apt full-upgrade -y
 # Remove orphaned packages, clean package cache and remove old unused configuration files
 apt autoremove --purge -y
 apt clean
-apt purge ~c
+apt purge ~c -y
 
 # Remove cache files
 rm -rvf /var/cache/*
