@@ -41,6 +41,11 @@ if [ $deep == 1 ]; then
 	# Remove all cache files
 	rm -rvf /home/*/.cache/*
 	rm -rvf /root/.cache/*
+
+	# Remove trash
+	rm -rvf /home/*/.local/share/Trash/*
+	rm -rvf /root/.local/share/Trash/*
+
 else
 	# Remove cache files that have not been used
 	# in the past 60 days, for all users
