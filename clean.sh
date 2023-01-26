@@ -1,6 +1,23 @@
 #!/bin/bash
 
 
+deep=0
+
+while [ $# -gt 0 ]
+do
+	case "$1" in
+		-d|--deep)
+			deep=1
+			shift
+			;;
+		*)
+			echo "Invalid argument: $1"
+			exit 1
+			;;
+	esac
+done
+
+
 # Check if the script is being run as root
 if [ "$(id -u)" != "0" ]; then
 	echo "Run as root"
@@ -19,9 +36,17 @@ rm -vf /var/log/btmp
 # Remove gzipped log files in the /var/log directory
 find /var/log -type f -name "*.gz" -delete -print
 
-# Remove cache files in ~/.cache that have not been used in the past 60 days, for all users
-find /home/*/.cache/ -type f -atime +60 -delete -print
-find /root/.cache/ -type f -atime +60 -delete -print
+
+if [ $deep == 1 ]; then
+	# Remove all cache files
+	rm -rvf /home/*/.cache/*
+	rm -rvf /root/.cache/*
+else
+	# Remove cache files that have not been used
+	# in the past 60 days, for all users
+	find /home/*/.cache/ -type f -atime +60 -delete -print
+	find /root/.cache/ -type f -atime +60 -delete -print
+fi
 
 # Remove various history files in the /home directory
 rm -vf /home/*/.bash_history
@@ -32,7 +57,8 @@ rm -vf /home/*/.python_history
 apt update
 apt full-upgrade -y
 
-# Remove orphaned packages, clean package cache and remove old unused configuration files
+# Remove orphaned packages, clean package cache and
+# remove old unused configuration files
 apt autoremove --purge -y
 apt clean
 apt purge ~c -y
