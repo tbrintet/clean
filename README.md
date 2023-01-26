@@ -15,7 +15,7 @@ Please note that this script is intended for use on Debian-based systems and may
 
 ## Usage
 
-sudo ./clean.sh [-d|--deep]
+`sudo ./clean.sh [-d|--deep]`
 
 The script takes one optional argument, `-d` or `--deep`, which when provided, causes the script to delete the Trash directory along with more cache files.
 
