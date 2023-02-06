@@ -57,6 +57,7 @@ fi
 rm -vf /home/*/.bash_history
 rm -vf /home/*/.lesshst
 rm -vf /home/*/.python_history
+rm -vf /home/*/.node_repl_history
 
 # Update package list and upgrade all installed packages
 apt update
