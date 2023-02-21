@@ -55,9 +55,13 @@ fi
 
 # Remove various history files in the /home directory
 rm -vf /home/*/.bash_history
+rm -vf /root/.bash_history
 rm -vf /home/*/.lesshst
+rm -vf /root/.lesshst
 rm -vf /home/*/.python_history
+rm -vf /root/.python_history
 rm -vf /home/*/.node_repl_history
+rm -vf /root/.node_repl_history
 
 # Update package list and upgrade all installed packages
 apt update
